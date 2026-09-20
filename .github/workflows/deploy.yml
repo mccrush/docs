@@ -32,15 +32,15 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0 # Не требуется, если функция lastUpdated не включена
-      # - uses: pnpm/action-setup@v4 # Раскомментируйте, если вы используете pnpm
-      #   with:
-      #     version: 9
+      - uses: pnpm/action-setup@v4 # Раскомментируйте, если вы используете pnpm
+        with:
+          version: 11
       # - uses: oven-sh/setup-bun@v1 # Раскомментируйте, если вы используете Bun
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: npm # или pnpm / yarn
+          cache: pnpm # или pnpm / yarn
       - name: Cache VitePress
         uses: actions/cache@v4
         with:
@@ -51,7 +51,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: npm ci # или pnpm install / yarn install / bun install
+        run: pnpm install # или pnpm install / yarn install / bun install
       - name: Build with VitePress
         run: npm run docs:build # или pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
