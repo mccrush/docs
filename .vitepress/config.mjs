@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   srcDir: "docs",
+  base: '/docs/',
   
   title: "mccrush.ru/docs",
   description: "Документация по разработке ПО",
